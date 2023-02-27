@@ -29,28 +29,6 @@ export const Logo = styled.img`
   object-fit: contain;
 `;
 
-export const AuthInput = styled.input`
-  all: unset;
-  width: 100%;
-  height: 54px;
-  border: 1px solid ${(props) => props.theme.color.border};
-  border-radius: ${(props) => props.theme.borderRadius.small};
-
-  margin-bottom: 26px;
-
-  font-family: 'regular', sans-serif;
-  font-size: ${(props) => props.theme.fontSize.medium};
-  color: ${(props) => props.theme.color.text};
-  font-weight: 400;
-
-  &::placeholder {
-    color: ${(props) => props.theme.color.text};
-    font-weight: 400;
-  }
-`;
-
-export const AuthButton = styled.button``;
-
 export const AuthAdditionalWrap = styled.div`
   width: 100%;
   display: flex;
@@ -65,4 +43,15 @@ export const AuthAdditional = styled.a`
   font-weight: 600;
 
   margin-bottom: 80px;
+`;
+
+export const SkipAuth = styled.a`
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+
+  font-family: 'regular', sans-serif;
+  font-size: ${(props) => props.theme.fontSize.medium};
+  color: ${(props) => props.theme.color.text};
+  font-weight: 600;
 `;

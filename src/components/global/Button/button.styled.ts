@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ButtonProps {
   readonly isActive: boolean;
+  type?: string;
 }
 export const ButtonBody = styled.button<ButtonProps>`
   all: unset;
@@ -17,7 +18,7 @@ export const ButtonBody = styled.button<ButtonProps>`
   text-align: center;
   font-family: 'regular', sans-serif;
   font-size: ${(props) => props.theme.fontSize.small};
-
+  transition: 0.2s;
   cursor: pointer;
 
   &:hover {
