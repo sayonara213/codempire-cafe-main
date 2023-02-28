@@ -10,10 +10,13 @@ export const FONT_SIZE = {
   big: '20px',
   large: '24px',
 };
-export const FONT_WEIGHT = {
-  light: '400',
-  normal: '500',
-  bold: '700',
+export const FONT = {
+  thin: 'thin',
+  light: 'light',
+  regular: 'regular',
+  medium: 'medium',
+  bold: 'bold',
+  black: 'black',
 };
 export const COLOR = {
   background: '#E5E5E5',
@@ -34,7 +37,7 @@ export const BORDER_RADIUS = {
 
 export const theme = {
   fontSize: FONT_SIZE,
-  fontWeight: FONT_WEIGHT,
+  font: FONT,
   borderRadius: BORDER_RADIUS,
   color: COLOR,
 };

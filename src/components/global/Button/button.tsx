@@ -1,11 +1,17 @@
-import React, { PropsWithChildren } from 'react';
-import { ButtonBody, ButtonSpan } from './button.styled';
+import React from 'react';
+import * as Styled from './button.styled';
 
-const Button: React.FC<PropsWithChildren> = ({ children }) => {
+interface ButtonProps {
+  type: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
+  isActive: boolean;
+  children: JSX.Element | JSX.Element[] | string | string[];
+}
+
+const Button: React.FC<ButtonProps> = ({ children, type, isActive }) => {
   return (
-    <ButtonBody isActive={true}>
-      <ButtonSpan>{children}</ButtonSpan>
-    </ButtonBody>
+    <Styled.ButtonBody isActive={isActive} type={type}>
+      <Styled.ButtonSpan>{children}</Styled.ButtonSpan>
+    </Styled.ButtonBody>
   );
 };
 

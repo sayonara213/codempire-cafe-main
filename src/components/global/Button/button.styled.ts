@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ButtonProps {
   readonly isActive: boolean;
+  type?: string;
 }
 export const ButtonBody = styled.button<ButtonProps>`
   all: unset;
@@ -9,15 +10,17 @@ export const ButtonBody = styled.button<ButtonProps>`
   width: 100%;
   height: 48px;
 
-  border-radius: ${(props) => props.theme.borderRadius.small};
-  background-color: ${(props) =>
-    props.isActive ? props.theme.color.dark : props.theme.color.light};
+  border-radius: ${({ theme }) => theme.borderRadius.small};
+  background-color: ${({ theme, isActive }) =>
+    isActive ? theme.color.dark : theme.color.notActive};
 
-  color: ${(props) => props.theme.color.white};
+  color: ${({ theme }) => theme.color.white};
   text-align: center;
-  font-family: 'regular', sans-serif;
-  font-size: ${(props) => props.theme.fontSize.small};
+  font-family: ${({ theme }) => theme.font.regular};
+  font-size: ${({ theme }) => theme.fontSize.small};
+  letter-spacing: 1.25px;
 
+  transition: background-color 0.2s;
   cursor: pointer;
 
   &:hover {

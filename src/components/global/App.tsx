@@ -1,9 +1,10 @@
 import React from 'react';
-import '../../App.css';
-import { Theme } from './theme';
-import SplashScreen from './splash-screen/splash-screen';
+
 import AppRouter from '../AppRouter';
 import { BrowserRouter } from 'react-router-dom';
+
+import { Theme } from './theme';
+import '../../App.css';
 
 function App() {
   return (
