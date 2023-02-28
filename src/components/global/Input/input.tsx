@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { InputField, InputIcon, InputPlaceholder, InputWrap } from './input.styled';
+
+import * as Styled from './input.styled';
 import { IMAGES } from '../../../constants/images';
 
 interface InputProps {
@@ -30,8 +31,8 @@ const Input: React.FC<InputProps> = ({ placeholder, value, onchange }) => {
   };
 
   return (
-    <InputWrap isFocused={isSelected}>
-      <InputField
+    <Styled.InputWrap isFocused={isSelected}>
+      <Styled.InputField
         type={
           placeholder === 'Email'
             ? placeholder.toLowerCase()
@@ -45,14 +46,14 @@ const Input: React.FC<InputProps> = ({ placeholder, value, onchange }) => {
         onChange={onchange}
         name={placeholder.toLowerCase()}
       />
-      <InputPlaceholder>{placeholder}</InputPlaceholder>
+      <Styled.InputPlaceholder>{placeholder}</Styled.InputPlaceholder>
       {placeholder === 'Password' && (
-        <InputIcon
+        <Styled.InputIcon
           src={isPasswordVisible ? IMAGES.show : IMAGES.hide}
           onClick={changePasswordVisibility}
         />
       )}
-    </InputWrap>
+    </Styled.InputWrap>
   );
 };
 
