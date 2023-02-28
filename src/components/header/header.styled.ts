@@ -15,7 +15,6 @@ export const HeaderAuth = styled.h2`
   margin: 0;
 
   color: ${(props) => props.theme.color.white};
-  font-size: ${(props) => props.theme.fontSize.large};
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-size: ${(props) => props.theme.fontSize.big};
+  font-family: ${({ theme }) => theme.font.medium};
 `;

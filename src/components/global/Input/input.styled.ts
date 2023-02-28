@@ -10,6 +10,8 @@ export const InputWrap = styled.div<InputWrapProps>`
   height: 54px;
 
   padding: 0 15px 0 15px;
+  margin-bottom: 26px;
+
   box-sizing: border-box;
 
   display: flex;
@@ -18,10 +20,8 @@ export const InputWrap = styled.div<InputWrapProps>`
   justify-content: center;
 
   border: 1px solid
-    ${(props) => (props.isFocused ? props.theme.color.primary : props.theme.color.border)};
+    ${(props) => (props.isFocused ? props.theme.color.dark : props.theme.color.border)};
   border-radius: ${(props) => props.theme.borderRadius.small};
-
-  margin-bottom: 26px;
 
   ${({ isFocused }) => isFocused && `label { transform: translateY(-220%); font-size: 12px;}`}
 `;
@@ -31,10 +31,9 @@ export const InputField = styled.input`
 
   width: 100%;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: ${({ theme }) => theme.font.regular};
   font-size: ${(props) => props.theme.fontSize.medium};
   color: ${(props) => props.theme.color.text};
-  font-weight: 400;
 
   z-index: 5;
 
@@ -50,16 +49,16 @@ export const InputIcon = styled.img`
 `;
 
 export const InputPlaceholder = styled.label`
+  padding: 0 5px;
   text-align: center;
   background-color: white;
 
   position: absolute;
-  left: 15px;
+  left: 10px;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: ${({ theme }) => theme.font.regular};
   font-size: ${(props) => props.theme.fontSize.medium};
   color: ${(props) => props.theme.color.text};
-  font-weight: 400;
 
   z-index: 3;
   transition: transform 150ms ease-out, font-size 150ms ease-out;

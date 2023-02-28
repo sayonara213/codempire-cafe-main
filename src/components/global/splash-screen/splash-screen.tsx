@@ -1,17 +1,12 @@
 import React, { FC } from 'react';
-import {
-  SplashScreenContent,
-  SplashScreenLogo,
-  SplashScreenText,
-  SplashScreenWrap,
-} from './splash-screen.styled';
+import { SplashScreenContent, SplashScreenLogo, SplashScreenWrap } from './splash-screen.styled';
+import { IMAGES } from '../../../constants/images';
 
 const SplashScreen: FC = () => {
   return (
     <SplashScreenWrap>
       <SplashScreenContent>
-        <SplashScreenLogo>Codempire</SplashScreenLogo>
-        <SplashScreenText>Cafe</SplashScreenText>
+        <SplashScreenLogo src={IMAGES.logo} />
       </SplashScreenContent>
     </SplashScreenWrap>
   );

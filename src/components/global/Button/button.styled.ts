@@ -12,13 +12,15 @@ export const ButtonBody = styled.button<ButtonProps>`
 
   border-radius: ${(props) => props.theme.borderRadius.small};
   background-color: ${(props) =>
-    props.isActive ? props.theme.color.dark : props.theme.color.light};
+    props.isActive ? props.theme.color.dark : props.theme.color.notActive};
 
   color: ${(props) => props.theme.color.white};
   text-align: center;
-  font-family: 'regular', sans-serif;
+  font-family: ${({ theme }) => theme.font.regular};
   font-size: ${(props) => props.theme.fontSize.small};
-  transition: 0.2s;
+  letter-spacing: 1.25px;
+
+  transition: background-color 0.2s;
   cursor: pointer;
 
   &:hover {

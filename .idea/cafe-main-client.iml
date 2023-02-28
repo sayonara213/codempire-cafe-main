@@ -9,5 +9,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="cafe-main-server" />
+    <orderEntry type="module" module-name="cafe-main-nest" />
+    <orderEntry type="module" module-name="cafe-main-server" />
   </component>
 </module>

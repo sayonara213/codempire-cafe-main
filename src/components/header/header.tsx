@@ -1,11 +1,15 @@
 import React from 'react';
-import { HeaderAuth, HeaderContainer } from './header.styled';
+import * as Styled from './header.styled';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  location: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ location }) => {
   return (
-    <HeaderContainer>
-      <HeaderAuth>Log in</HeaderAuth>
-    </HeaderContainer>
+    <Styled.HeaderContainer>
+      <Styled.HeaderAuth>{location === '/login' ? 'log in' : 'sign up'}</Styled.HeaderAuth>
+    </Styled.HeaderContainer>
   );
 };
 
