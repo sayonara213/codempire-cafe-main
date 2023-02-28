@@ -7,9 +7,11 @@ interface InputProps {
   placeholder: string;
   value: any;
   onchange: React.ChangeEventHandler<HTMLInputElement>;
+
+  isPassword?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({ placeholder, value, onchange }) => {
+const Input: React.FC<InputProps> = ({ placeholder, value, onchange, isPassword }) => {
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
   const [isSelected, setIsSelected] = React.useState(false);
 
@@ -33,13 +35,7 @@ const Input: React.FC<InputProps> = ({ placeholder, value, onchange }) => {
   return (
     <Styled.InputWrap isFocused={isSelected}>
       <Styled.InputField
-        type={
-          placeholder === 'Email'
-            ? placeholder.toLowerCase()
-            : isPasswordVisible
-            ? 'text'
-            : 'password'
-        }
+        type={isPassword ? (isPasswordVisible ? 'text' : 'password') : 'text'}
         onFocus={onFocused}
         onBlur={onBlurred}
         value={value}
@@ -47,7 +43,7 @@ const Input: React.FC<InputProps> = ({ placeholder, value, onchange }) => {
         name={placeholder.toLowerCase()}
       />
       <Styled.InputPlaceholder>{placeholder}</Styled.InputPlaceholder>
-      {placeholder === 'Password' && (
+      {isPassword && (
         <Styled.InputIcon
           src={isPasswordVisible ? IMAGES.show : IMAGES.hide}
           onClick={changePasswordVisibility}

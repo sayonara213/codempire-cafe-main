@@ -19,9 +19,8 @@ export const InputWrap = styled.div<InputWrapProps>`
   align-items: center;
   justify-content: center;
 
-  border: 1px solid
-    ${(props) => (props.isFocused ? props.theme.color.dark : props.theme.color.border)};
-  border-radius: ${(props) => props.theme.borderRadius.small};
+  border: 1px solid ${({ theme, isFocused }) => (isFocused ? theme.color.dark : theme.color.border)};
+  border-radius: ${({ theme }) => theme.borderRadius.small};
 
   ${({ isFocused }) => isFocused && `label { transform: translateY(-220%); font-size: 12px;}`}
 `;
@@ -32,8 +31,8 @@ export const InputField = styled.input`
   width: 100%;
 
   font-family: ${({ theme }) => theme.font.regular};
-  font-size: ${(props) => props.theme.fontSize.medium};
-  color: ${(props) => props.theme.color.text};
+  font-size: ${({ theme }) => theme.fontSize.medium};
+  color: ${({ theme }) => theme.color.text};
 
   z-index: 5;
 
@@ -57,8 +56,8 @@ export const InputPlaceholder = styled.label`
   left: 10px;
 
   font-family: ${({ theme }) => theme.font.regular};
-  font-size: ${(props) => props.theme.fontSize.medium};
-  color: ${(props) => props.theme.color.text};
+  font-size: ${({ theme }) => theme.fontSize.medium};
+  color: ${({ theme }) => theme.color.text};
 
   z-index: 3;
   transition: transform 150ms ease-out, font-size 150ms ease-out;

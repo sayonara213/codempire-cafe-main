@@ -8,6 +8,7 @@ import { IMAGES } from '../../constants/images';
 import * as Styled from './auth.styled';
 import Input from '../global/Input/input';
 import Button from '../global/Button/button';
+import { AuthAdditional } from './auth.styled';
 
 interface FormValues {
   [key: string]: string;
@@ -26,8 +27,8 @@ const Auth: React.FC<AuthProps> = ({ isLogin }) => {
     password: '',
   };
 
-  const onSubmit = () => {
-    alert(formik.values);
+  const onSubmit = async (formsData: FormValues) => {
+    console.log(formsData);
   };
 
   const formik = useFormik({
@@ -38,7 +39,7 @@ const Auth: React.FC<AuthProps> = ({ isLogin }) => {
 
   return (
     <Styled.AuthContainer>
-      <Styled.AuthWrap onSubmit={formik.submitForm}>
+      <Styled.AuthWrap onSubmit={formik.handleSubmit}>
         <Styled.AuthTitleWrap>
           <Styled.Logo src={IMAGES.logo} />
         </Styled.AuthTitleWrap>
@@ -48,16 +49,17 @@ const Auth: React.FC<AuthProps> = ({ isLogin }) => {
             placeholder={input}
             value={formik.values[input.toLowerCase()]}
             onchange={formik.handleChange}
+            isPassword={input === 'Password'}
           />
         ))}
         {isLogin ? (
           <Styled.AuthAdditionalWrap>
-            <Styled.AuthAdditional href={'/'}>Forgot password?</Styled.AuthAdditional>
-            <Styled.AuthAdditional href={'/sign-up'}>Sign up</Styled.AuthAdditional>
+            <AuthAdditional to={'/'}>Forgot password?</AuthAdditional>
+            <AuthAdditional to={'/sign-up'}>Sign up</AuthAdditional>
           </Styled.AuthAdditionalWrap>
         ) : (
           <Styled.LoginWrap>
-            <Styled.AuthAdditional href={'/login'}>Log in</Styled.AuthAdditional>
+            <AuthAdditional to={'/login'}>Log in</AuthAdditional>
           </Styled.LoginWrap>
         )}
         <Button type={'submit'} isActive={!formik.errors.email && !formik.errors.password}>

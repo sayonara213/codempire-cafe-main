@@ -9,7 +9,7 @@ export const SplashScreenWrap = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${(props) => props.theme.color.dark};
+  background-color: ${({ theme }) => theme.color.dark};
 `;
 
 export const SplashScreenContent = styled.div``;

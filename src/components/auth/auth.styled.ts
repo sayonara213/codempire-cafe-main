@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const AuthContainer = styled.div`
   width: 100%;
@@ -48,13 +49,13 @@ export const LoginWrap = styled.div`
   display: flex;
   align-items: center;
 `;
-export const AuthAdditional = styled.a`
+export const AuthAdditional = styled(Link)`
   text-decoration: none;
   margin-bottom: 80px;
 
   font-family: ${({ theme }) => theme.font.bold};
-  font-size: ${(props) => props.theme.fontSize.small};
-  color: ${(props) => props.theme.color.text};
+  font-size: ${({ theme }) => theme.fontSize.small};
+  color: ${({ theme }) => theme.color.text};
 `;
 
 export const SkipAuth = styled.a`
@@ -65,6 +66,6 @@ export const SkipAuth = styled.a`
 
   text-align: center;
   font-family: ${({ theme }) => theme.font.medium};
-  font-size: ${(props) => props.theme.fontSize.small};
-  color: ${(props) => props.theme.color.text};
+  font-size: ${({ theme }) => theme.fontSize.small};
+  color: ${({ theme }) => theme.color.text};
 `;

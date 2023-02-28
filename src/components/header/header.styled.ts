@@ -8,13 +8,13 @@ export const HeaderContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${(props) => props.theme.color.dark};
+  background-color: ${({ theme }) => theme.color.dark};
 `;
 
 export const HeaderAuth = styled.h2`
   margin: 0;
 
-  color: ${(props) => props.theme.color.white};
-  font-size: ${(props) => props.theme.fontSize.big};
+  color: ${({ theme }) => theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.big};
   font-family: ${({ theme }) => theme.font.medium};
 `;
