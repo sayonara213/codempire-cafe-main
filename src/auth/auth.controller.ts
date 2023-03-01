@@ -1,8 +1,19 @@
-import { Body, Controller, Get, Inject, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Inject,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
-import LocalAuthGuard from './localAuthGuard';
+import LocalAuthGuard from './guard/localAuthGuard';
 import { CreateUserDto } from '../user/dto/user.dto';
-import { JwtAuthGuard } from './jwtAuthGuard';
+import { JwtAuthGuard } from './guard/jwtAuthGuard';
+import { RoleGuard } from './guard/roleGuard';
+import { UserRole } from '../user/entity/user.entity';
+import { Roles } from './roles/roles.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -20,9 +31,10 @@ export class AuthController {
     return this.service.register(user);
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get('/profile')
-  getProfile() {
+  @Roles(UserRole.ADMIN)
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Get('/users')
+  async getProfile(@Req() req) {
     return this.service.allUsers();
   }
 }
